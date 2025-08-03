@@ -26,7 +26,7 @@ document.getElementById('leadForm').addEventListener('submit', async (e) => {
   };
 
   try {
-    const response = await fetch('https://script.google.com/macros/s/AKfycbxe5Du1lB3FnriAognvW-QqN_1OVuCsGXKvw3HEQwG_PH-yJ_DUBp5OJkzNuekHgWVm/exec', {
+    const response = await fetch('https://script.google.com/macros/s/AKfycbz_vCW9PVP9o4RfS-jrTqlZb4o0khjD0WRE0yA0K-11DeGW5Mkqp2ytfq06QOmUmDKu/exec', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: { 'Content-Type': 'application/json' }
@@ -37,4 +37,5 @@ document.getElementById('leadForm').addEventListener('submit', async (e) => {
     document.getElementById('response').innerText = 'Error submitting form';
     console.error(error);
   }
+
 });
