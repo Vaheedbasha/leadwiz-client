@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LeadWiz Intake Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>LeadWiz Intake Form</h1>
+    <form id="leadForm">
+      <!-- Step 1: Personal Info -->
+      <div class="form-step" id="step1">
+        <h2>Step 1: Your Details</h2>
+        <label>Name:</label>
+        <input type="text" name="name" required>
+        <label>Mobile Number:</label>
+        <input type="tel" name="mobile" required>
+        <label>Email:</label>
+        <input type="email" name="email" required>
+        <button type="button" onclick="nextStep(2)">Next</button>
+      </div>
+      <!-- Step 2: Service Details -->
+      <div class="form-step" id="step2" style="display: none;">
+        <h2>Step 2: Service Details</h2>
+        <label>Service Required:</label>
+        <select name="service" required>
+          <option value="">Select Service</option>
+          <option value="Logistics">Logistics</option>
+          <option value="Consulting">Consulting</option>
+          <option value="Other">Other</option>
+        </select>
+        <label>From City:</label>
+        <input type="text" name="fromCity">
+        <label>To City:</label>
+        <input type="text" name="toCity">
+        <button type="button" onclick="prevStep(1)">Previous</button>
+        <button type="button" onclick="nextStep(3)">Next</button>
+      </div>
+      <!-- Step 3: Budget & Date -->
+      <div class="form-step" id="step3" style="display: none;">
+        <h2>Step 3: Budget & Timeline</h2>
+        <label>Budget Range:</label>
+        <input type="text" name="budget" required>
+        <label>Date Needed:</label>
+        <input type="date" name="dateNeeded" required>
+        <label>Open Message:</label>
+        <textarea name="openMessage" placeholder="Any specific needs for a tailored quote?"></textarea>
+        <button type="button" onclick="prevStep(2)">Previous</button>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+    <div id="response"></div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
