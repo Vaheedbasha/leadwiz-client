@@ -1,15 +1,3 @@
-// Multi-step form navigation
-function nextStep(step) {
-  document.querySelectorAll('.form-step').forEach(step => step.style.display = 'none');
-  document.getElementById(`step${step}`).style.display = 'block';
-}
-
-function prevStep(step) {
-  document.querySelectorAll('.form-step').forEach(step => step.style.display = 'none');
-  document.getElementById(`step${step}`).style.display = 'block';
-}
-
-// Form submission
 document.getElementById('leadForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   const formData = new FormData(e.target);
@@ -24,9 +12,8 @@ document.getElementById('leadForm').addEventListener('submit', async (e) => {
     dateNeeded: formData.get('dateNeeded'),
     openMessage: formData.get('openMessage')
   };
-
   try {
-    const response = await fetch('https://script.google.com/macros/s/AKfycbz_vCW9PVP9o4RfS-jrTqlZb4o0khjD0WRE0yA0K-11DeGW5Mkqp2ytfq06QOmUmDKu/exec', {
+    const response = await fetch('https://script.google.com/macros/s/AKfycbyWY0adGX7c7IfAmVxu9mxqG057l8OaI3zDl9LyOGqeTThuXHNjFOUOaRuOBzuDdMAv/exec', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: { 'Content-Type': 'application/json' }
@@ -35,7 +22,6 @@ document.getElementById('leadForm').addEventListener('submit', async (e) => {
     document.getElementById('response').innerText = result.message;
   } catch (error) {
     document.getElementById('response').innerText = 'Error submitting form';
-    console.error(error);
+    console.error('Fetch error:', error);
   }
-
 });
